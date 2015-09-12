@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="asafonov" id="Init dict tables" context="prod, dev" dbms="oracle">
+        <preConditions>
+            <and>
+                <and>
+                    <sqlCheck expectedResult="0">SELECT COUNT(1) FROM ${database.username}.PLACEZONES</sqlCheck>
+                </and>
+                <and>
+                    <sqlCheck expectedResult="0">SELECT COUNT(1) FROM ${database.username}.OFFICES</sqlCheck>
+                </and>
+            </and>
+        </preConditions>
+        <comment>Init dict tables</comment>
+        <insert catalogName="${database.username}"
+                dbms="oracle"
+                schemaName="${database.username}"
+                tableName="OFFICES">
+            <column name="ID" type="number(19,0)" value="1"/>
+            <column name="ADDRESS" type="varchar(30 CHAR)" value="Bla bla"/>
+            <column name="TITLE" type="varchar(15 CHAR)" value="B3"/>
+        </insert>
+        <insert catalogName="${database.username}"
+                dbms="oracle"
+                schemaName="${database.username}"
+                tableName="PLACEZONES">
+            <column name="ID" type="number(19,0)" value="1"/>
+            <column name="NAME" type="varchar(30 CHAR)" value="Back yard"/>
+            <column name="OFFICE_ID" type="number(19,0)" value="1"/>
+        </insert>
+        <insert catalogName="${database.username}"
+                dbms="oracle"
+                schemaName="${database.username}"
+                tableName="PLACEZONES">
+            <column name="ID" type="number(19,0)" value="2"/>
+            <column name="NAME" type="varchar(30 CHAR)" value="Front yard"/>
+            <column name="OFFICE_ID" type="number(19,0)" value="1"/>
+        </insert>
+        <insert catalogName="${database.username}"
+                dbms="oracle"
+                schemaName="${database.username}"
+                tableName="PLACEZONES">
+            <column name="ID" type="number(19,0)" value="3"/>
+            <column name="NAME" type="varchar(30 CHAR)" value="Park"/>
+            <column name="OFFICE_ID" type="number(19,0)" value="1"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

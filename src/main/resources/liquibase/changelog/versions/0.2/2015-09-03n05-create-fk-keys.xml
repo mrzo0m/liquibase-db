@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+
+    <changeSet author="oleg_burshinov" id="addForeignKeyConstraint-EMPLOYEE_ADDITIONAL_INFOS_EMPLOYEE">
+        <addForeignKeyConstraint baseColumnNames="EMPLOYEE_ID"
+                                 baseTableName="${database.username}.EMPLOYEE_ADDITIONAL_INFOS"
+                                 constraintName="fk_empinfo_emps"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="${database.username}.EMPLOYEES"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addForeignKeyConstraint-EMPLOYEE_ADDITIONAL_INFOS_ID">
+        <addForeignKeyConstraint baseColumnNames="TYPE_ID"
+                                 baseTableName="${database.username}.EMPLOYEE_ADDITIONAL_INFOS"
+                                 constraintName="fk_empinfo_types"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="${database.username}.ADDITIONAL_INFO_TYPES"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addForeignKeyConstraint-EMPLOYEES_OFFICE">
+        <addForeignKeyConstraint baseColumnNames="OFFICE_ID"
+                                 baseTableName="${database.username}.EMPLOYEES"
+                                 constraintName="fk_emps_office"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="${database.username}.OFFICES"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addForeignKeyConstraint-PLACEOWNERSHIP_OWNER">
+        <addForeignKeyConstraint baseColumnNames="OWNER_ID"
+                                 baseTableName="${database.username}.PLACEOWNERSHIP"
+                                 constraintName="fk_placeownership_emps"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="${database.username}.EMPLOYEES"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addForeignKeyConstraint-PLACEOWNERSHIP_PLACE">
+        <addForeignKeyConstraint baseColumnNames="PLACE_ID"
+                                 baseTableName="${database.username}.PLACEOWNERSHIP"
+                                 constraintName="fk_placeownership_places"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="${database.username}.PLACES"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addForeignKeyConstraint-PLACES_PLACEZONE">
+        <addForeignKeyConstraint baseColumnNames="PLACEZONE_ID"
+                                 baseTableName="${database.username}.PLACES"
+                                 constraintName="fk_places_placezone"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="${database.username}.PLACEZONES"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addForeignKeyConstraint-PLACEZONES_OFFICE">
+        <addForeignKeyConstraint baseColumnNames="OFFICE_ID"
+                                 baseTableName="${database.username}.PLACEZONES"
+                                 constraintName="fk_placezone_office"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="${database.username}.OFFICES"/>
+    </changeSet>
+</databaseChangeLog>

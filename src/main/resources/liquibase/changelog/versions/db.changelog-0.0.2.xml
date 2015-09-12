@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <preConditions>
+        <sqlCheck expectedResult="0">
+            SELECT count(1)
+            FROM databasechangelog
+            WHERE author='liquibase' AND tag='0.2'
+        </sqlCheck>
+    </preConditions>
+
+    <!--  *  For all included file names must use this format <DATE>n<DATE_INCR>-<DESCR>.xml
+          *  Example: 2015-09-03n01-create-tables.xml
+          *  Each schema modification must have own changelog
+          *  Example:
+          * <changeSet id="2013-03-02-initial-schema-import-1" author="eg">
+          *      <createTable tableName="HOUSES">
+          *          <column name="ID" type="BIGINT" />
+          *      </createTable>
+          * </changeSet>
+          * <changeSet id="2013-03-02-initial-schema-import-2" author="eg">
+          *     <addPrimaryKey tableName="HOUSES" columnNames="ID" />
+          * </changeSet>
+          *
+          *
+     -->
+    <include file="0.2/2015-09-03n01-create-schema-user.xml" relativeToChangelogFile="true"/>
+    <include file="0.2/2015-09-03n02-create-tables.xml" relativeToChangelogFile="true"/>
+    <include file="0.2/2015-09-03n03-create-index.xml" relativeToChangelogFile="true"/>
+    <include file="0.2/2015-09-03n04-create-pk-keys.xml" relativeToChangelogFile="true"/>
+    <include file="0.2/2015-09-03n05-create-fk-keys.xml" relativeToChangelogFile="true"/>
+    <include file="0.2/2015-09-03n06-create-constraint.xml" relativeToChangelogFile="true"/>
+    <include file="0.2/2015-09-04n01-init-dictionaries.xml" relativeToChangelogFile="true"/>
+    <include file="0.2/2015-09-04n02-insert-test-date.xml" relativeToChangelogFile="true"/>
+    <include file="0.2/2015-09-07n01-tag-to-the-database.xml" relativeToChangelogFile="true"/>
+</databaseChangeLog>

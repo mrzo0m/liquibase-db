@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="oleg_burshinov" id="addNotNullConstraint-ADDITIONAL_INFO_TYPES">
+        <addNotNullConstraint catalogName="${database.username}"
+                              columnDataType="number(19,0)"
+                              columnName="ID"
+                              defaultNullValue="0"
+                              schemaName="${database.username}"
+                              tableName="ADDITIONAL_INFO_TYPES"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addNotNullConstraint-EMPLOYEE_ADDITIONAL_INFOS">
+        <addNotNullConstraint catalogName="${database.username}"
+                              columnDataType="number(19,0)"
+                              columnName="ID"
+                              defaultNullValue="0"
+                              schemaName="${database.username}"
+                              tableName="EMPLOYEE_ADDITIONAL_INFOS"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addNotNullConstraint-EMPLOYEES">
+        <addNotNullConstraint catalogName="${database.username}"
+                              columnDataType="number(19,0)"
+                              columnName="ID"
+                              defaultNullValue="0"
+                              schemaName="${database.username}"
+                              tableName="EMPLOYEES"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addNotNullConstraint-OFFICES">
+        <addNotNullConstraint catalogName="${database.username}"
+                              columnDataType="number(19,0)"
+                              columnName="ID"
+                              defaultNullValue="0"
+                              schemaName="${database.username}"
+                              tableName="OFFICES"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addNotNullConstraint-PLACEOWNERSHIP">
+        <addNotNullConstraint catalogName="${database.username}"
+                              columnDataType="number(19,0)"
+                              columnName="ID"
+                              defaultNullValue="0"
+                              schemaName="${database.username}"
+                              tableName="PLACEOWNERSHIP"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addNotNullConstraint-PLACEZONES">
+        <addNotNullConstraint catalogName="${database.username}"
+                              columnDataType="number(19,0)"
+                              columnName="ID"
+                              defaultNullValue="0"
+                              schemaName="${database.username}"
+                              tableName="PLACEZONES"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addNotNullConstraint-PLACES">
+        <addNotNullConstraint catalogName="${database.username}"
+                              columnDataType="number(19,0)"
+                              columnName="ID"
+                              defaultNullValue="0"
+                              schemaName="${database.username}"
+                              tableName="PLACES"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addUniqueConstraint-OFFICES_TITLE">
+        <addUniqueConstraint catalogName="${database.username}"
+                             columnNames="TITLE"
+                             constraintName="const_title"
+                             schemaName="${database.username}"
+                             tableName="OFFICES"
+                             tablespace="SYSTEM"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addUniqueConstraint-OFFICES_ADDRESS">
+        <addUniqueConstraint catalogName="${database.username}"
+                             columnNames="ADDRESS"
+                             constraintName="const_adress"
+                             schemaName="${database.username}"
+                             tableName="OFFICES"
+                             tablespace="SYSTEM"/>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="addUniqueConstraint-PLACES_NAME">
+        <addUniqueConstraint catalogName="${database.username}"
+                             columnNames="NAME"
+                             constraintName="const_name"
+                             schemaName="${database.username}"
+                             tableName="PLACES"
+                             tablespace="SYSTEM"/>
+    </changeSet>
+</databaseChangeLog>

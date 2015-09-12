@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="oleg_burshinov" id="createTable-ADDITIONAL_INFO_TYPES">
+        <createTable catalogName="${database.username}"
+                     remarks="A String"
+                     schemaName="${database.username}"
+                     tableName="ADDITIONAL_INFO_TYPES"
+                     tablespace="SYSTEM">
+            <column name="ID" type="number(19,0)"/>
+            <column name="NAME" type="varchar(25 CHAR)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createTable-EMPLOYEE_ADDITIONAL_INFOS">
+        <createTable catalogName="${database.username}"
+                     remarks="A String"
+                     schemaName="${database.username}"
+                     tableName="EMPLOYEE_ADDITIONAL_INFOS"
+                     tablespace="SYSTEM">
+            <column name="ID" type="number(19,0)"/>
+            <column name="VAL" type="varchar(30 CHAR)"/>
+            <column name="EMPLOYEE_ID" type="number(19,0)"/>
+            <column name="TYPE_ID" type="number(19,0)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createTable-EMPLOYEES">
+        <createTable catalogName="${database.username}"
+                     remarks="A String"
+                     schemaName="${database.username}"
+                     tableName="EMPLOYEES"
+                     tablespace="SYSTEM">
+            <column name="ID" type="number(19,0)"/>
+            <column name="EMAIL" type="varchar(255 CHAR)"/>
+            <column name="FIRSTNAME" type="varchar(30 CHAR)"/>
+            <column name="HIREDATE" type="timestamp(6)"/>
+            <column name="LASTNAME" type="varchar(30 CHAR)"/>
+            <column name="OFFICE_ID" type="number(19,0)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createTable-OFFICES">
+        <createTable catalogName="${database.username}"
+                     remarks="A String"
+                     schemaName="${database.username}"
+                     tableName="OFFICES"
+                     tablespace="SYSTEM">
+            <column name="ID" type="number(19,0)"/>
+            <column name="ADDRESS" type="varchar(30 CHAR)"/>
+            <column name="TITLE" type="varchar(15 CHAR)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createTable-PLACEOWNERSHIP">
+        <createTable catalogName="${database.username}"
+                     remarks="A String"
+                     schemaName="${database.username}"
+                     tableName="PLACEOWNERSHIP"
+                     tablespace="SYSTEM">
+            <column name="ID" type="number(19,0)"/>
+            <column name="FROM_DATE" type="date"/>
+            <column name="TO_DATE" type="date"/>
+            <column name="OWNER_ID" type="number(19,0)"/>
+            <column name="PLACE_ID" type="number(19,0)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createTable-PLACES">
+        <createTable catalogName="${database.username}"
+                     remarks="A String"
+                     schemaName="${database.username}"
+                     tableName="PLACES"
+                     tablespace="SYSTEM">
+            <column name="ID" type="number(19,0)"/>
+            <column name="NAME" type="varchar(30 CHAR)"/>
+            <column name="PLACEZONE_ID" type="number(19,0)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createTable-PLACEZONES">
+        <createTable catalogName="${database.username}"
+                     remarks="A String"
+                     schemaName="${database.username}"
+                     tableName="PLACEZONES"
+                     tablespace="SYSTEM">
+            <column name="ID" type="number(19,0)"/>
+            <column name="NAME" type="varchar(30 CHAR)"/>
+            <column name="OFFICE_ID" type="number(19,0)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

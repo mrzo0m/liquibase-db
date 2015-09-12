@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="oleg_burshinov" id="createIndex-IND_ADDITIONAL_INFO_TYPES">
+        <createIndex catalogName="${database.username}"
+                     indexName="IND_ADDITIONAL_INFO_TYPES"
+                     schemaName="${database.username}"
+                     tableName="ADDITIONAL_INFO_TYPES"
+                     tablespace="SYSTEM"
+                     unique="true">
+            <column name="ID" type="number(19,0)"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createIndex-IND_EMPLOYEE_ADDITIONAL_INFOS">
+        <createIndex catalogName="${database.username}"
+                     indexName="IND_EMPLOYEE_ADDITIONAL_INFOS"
+                     schemaName="${database.username}"
+                     tableName="EMPLOYEE_ADDITIONAL_INFOS"
+                     tablespace="SYSTEM"
+                     unique="true">
+            <column name="ID" type="number(19,0)"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createIndex-IND_EMPLOYEES">
+        <createIndex catalogName="${database.username}"
+                     indexName="IND_EMPLOYEES"
+                     schemaName="${database.username}"
+                     tableName="EMPLOYEES"
+                     tablespace="SYSTEM"
+                     unique="true">
+            <column name="ID" type="number(19,0)"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createIndex-IND_OFFICES">
+        <createIndex catalogName="${database.username}"
+                     indexName="IND_OFFICES"
+                     schemaName="${database.username}"
+                     tableName="OFFICES"
+                     tablespace="SYSTEM"
+                     unique="true">
+            <column name="ID" type="number(19,0)"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createIndex-IND_OFFICES_ADDRESS">
+        <createIndex catalogName="${database.username}"
+                     indexName="IND_OFFICES_ADDRESS"
+                     schemaName="${database.username}"
+                     tableName="OFFICES"
+                     tablespace="SYSTEM"
+                     unique="true">
+            <column name="ADDRESS" type="varchar(30 CHAR)"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createIndex-IND_OFFICES_TITLE">
+        <createIndex catalogName="${database.username}"
+                     indexName="IND_OFFICES_TITLE"
+                     schemaName="${database.username}"
+                     tableName="OFFICES"
+                     tablespace="SYSTEM"
+                     unique="true">
+            <column name="TITLE" type="varchar(15 CHAR)"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createIndex-IND_PLACEOWNERSHIP">
+        <createIndex catalogName="${database.username}"
+                     indexName="IND_PLACEOWNERSHIP"
+                     schemaName="${database.username}"
+                     tableName="PLACEOWNERSHIP"
+                     tablespace="SYSTEM"
+                     unique="true">
+            <column name="ID" type="number(19,0)"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createIndex-IND_PLACES">
+        <createIndex catalogName="${database.username}"
+                     indexName="IND_PLACES"
+                     schemaName="${database.username}"
+                     tableName="PLACES"
+                     tablespace="SYSTEM"
+                     unique="true">
+            <column name="ID" type="number(19,0)"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createIndex-IND_PLACES_NAME">
+        <createIndex catalogName="${database.username}"
+                     indexName="IND_PLACES_NAME"
+                     schemaName="${database.username}"
+                     tableName="PLACES"
+                     tablespace="SYSTEM"
+                     unique="true">
+            <column name="NAME" type="number(19,0)"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="oleg_burshinov" id="createIndex-IND_PLACEZONES">
+        <createIndex catalogName="${database.username}"
+                     indexName="IND_PLACEZONES"
+                     schemaName="${database.username}"
+                     tableName="PLACEZONES"
+                     tablespace="SYSTEM"
+                     unique="true">
+            <column name="ID" type="number(19,0)"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

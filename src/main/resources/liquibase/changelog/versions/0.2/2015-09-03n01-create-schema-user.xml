@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="asafonov" id="Create user for epark DB" context="prod, dev" dbms="oracle">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <sqlCheck expectedResult="0">SELECT COUNT(1) FROM ALL_USERS WHERE USERNAME=UPPER('${database.username}');
+                </sqlCheck>
+            </and>
+        </preConditions>
+        <comment>Create user for EPARK DB</comment>
+        <sql>
+            create user ${database.username}
+            identified by ${database.password}
+            default tablespace USERS
+            temporary tablespace TEMP
+            profile DEFAULT;
+
+            alter user ${database.username} quota unlimited on USERS;
+            grant connect to ${database.username};
+            grant resource to ${database.username};
+            grant unlimited tablespace to ${database.username};
+        </sql>
+    </changeSet>
+
+
+</databaseChangeLog>

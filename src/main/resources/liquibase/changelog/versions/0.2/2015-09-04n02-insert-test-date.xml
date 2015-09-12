@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <preConditions>
+        <changeLogPropertyDefined property="enable-tests" value="true"/>
+    </preConditions>
+
+
+    <changeSet author="asafonov" id="Init dict tables" context="prod, dev" dbms="oracle">
+        <preConditions onFail="CONTINUE">
+            <and>
+                <and>
+                    <sqlCheck expectedResult="0">SELECT COUNT(1) FROM ${database.username}.EMPLOYEES</sqlCheck>
+                </and>
+                <and>
+                    <sqlCheck expectedResult="0">SELECT COUNT(1) FROM ${database.username}.PLACEOWNERSHIP</sqlCheck>
+                </and>
+                <and>
+                    <sqlCheck expectedResult="0">SELECT COUNT(1) FROM ${database.username}.PLACES</sqlCheck>
+                </and>
+            </and>
+        </preConditions>
+        <comment>Set employees list, place ownership and places test data</comment>
+
+        <insert catalogName="${database.username}"
+                dbms="oracle"
+                schemaName="${database.username}"
+                tableName="EMPLOYEES">
+            <column name="ID" type="number(19,0)" value="1"/>
+            <column name="EMAIL" type="varchar(255 CHAR)" value="Alexey_Petrov@example.com"/>
+            <column name="FIRSTNAME" type="varchar(30 CHAR)" value="Alexey"/>
+            <column name="HIREDATE" type="timestamp(6)" valueDate="SYSTIMESTAMP"/>
+            <column name="LASTNAME" type="varchar(30 CHAR)" value="Petrov"/>
+            <column name="OFFICE_ID" type="number(19,0)" value="1"/>
+        </insert>
+        <insert catalogName="${database.username}"
+                dbms="oracle"
+                schemaName="${database.username}"
+                tableName="EMPLOYEES">
+            <column name="ID" type="number(19,0)" value="2"/>
+            <column name="EMAIL" type="varchar(255 CHAR)" value="Alexey_Sadov@example.com"/>
+            <column name="FIRSTNAME" type="varchar(30 CHAR)" value="Alexey"/>
+            <column name="HIREDATE" type="timestamp(6)" valueDate="SYSTIMESTAMP"/>
+            <column name="LASTNAME" type="varchar(30 CHAR)" value="Sadov"/>
+            <column name="OFFICE_ID" type="number(19,0)" value="1"/>
+        </insert>
+        <insert catalogName="${database.username}"
+                dbms="oracle"
+                schemaName="${database.username}"
+                tableName="PLACES">
+            <column name="ID" type="number(19,0)" value="1"/>
+            <column name="NAME" type="varchar(30 CHAR)" value="G1"/>
+            <column name="PLACEZONE_ID" type="number(19,0)" value="1"/>
+        </insert>
+        <insert catalogName="${database.username}"
+                dbms="oracle"
+                schemaName="${database.username}"
+                tableName="PLACES">
+            <column name="ID" type="number(19,0)" value="2"/>
+            <column name="NAME" type="varchar(30 CHAR)" value="G2"/>
+            <column name="PLACEZONE_ID" type="number(19,0)" value="1"/>
+        </insert>
+        <insert catalogName="${database.username}"
+                dbms="oracle"
+                schemaName="${database.username}"
+                tableName="PLACES">
+            <column name="ID" type="number(19,0)" value="3"/>
+            <column name="NAME" type="varchar(30 CHAR)" value="G3"/>
+            <column name="PLACEZONE_ID" type="number(19,0)" value="1"/>
+        </insert>
+        <insert catalogName="${database.username}"
+                dbms="oracle"
+                schemaName="${database.username}"
+                tableName="PLACES">
+            <column name="ID" type="number(19,0)" value="4"/>
+            <column name="NAME" type="varchar(30 CHAR)" value="GP1"/>
+            <column name="PLACEZONE_ID" type="number(19,0)" value="3"/>
+        </insert>
+        <insert catalogName="${database.username}"
+                dbms="oracle"
+                schemaName="${database.username}"
+                tableName="PLACEOWNERSHIP">
+            <column name="ID" type="number(19,0)" value="1"/>
+            <column name="FROM_DATE" type="date" valueDate="SYSTIMESTAMP"/>
+            <column name="TO_DATE" type="date" valueDate="SYSTIMESTAMP"/>
+            <column name="OWNER_ID" type="number(19,0)" value="1"/>
+            <column name="PLACE_ID" type="number(19,0)" value="1"/>
+        </insert>
+        <insert catalogName="${database.username}"
+                dbms="oracle"
+                schemaName="${database.username}"
+                tableName="PLACEOWNERSHIP">
+            <column name="ID" type="number(19,0)" value="2"/>
+            <column name="FROM_DATE" type="date" valueDate="SYSTIMESTAMP"/>
+            <column name="TO_DATE" type="date" valueDate="SYSTIMESTAMP"/>
+            <column name="OWNER_ID" type="number(19,0)" value="2"/>
+            <column name="PLACE_ID" type="number(19,0)" value="2"/>
+        </insert>
+        <insert catalogName="${database.username}"
+                dbms="oracle"
+                schemaName="${database.username}"
+                tableName="PLACEOWNERSHIP">
+            <column name="ID" type="number(19,0)" value="3"/>
+            <column name="FROM_DATE" type="date" valueDate="SYSTIMESTAMP"/>
+            <column name="TO_DATE" type="date" valueDate="SYSTIMESTAMP"/>
+            <column name="OWNER_ID" type="number(19,0)" value="3"/>
+            <column name="PLACE_ID" type="number(19,0)" value="4"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
